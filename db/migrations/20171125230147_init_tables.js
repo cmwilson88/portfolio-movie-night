@@ -13,9 +13,9 @@ exports.up = function(knex, Promise) {
     table.string('title').notNullable();
     table.string('poster_path').notNullable();
     table.string('backdrop_path').notNullable();
-    table.string('overview').notNullable();
+    table.text('overview').notNullable();
     table.string('release_date').notNullable();
-    table.integer('vote_average').notNullable();
+    table.decimal('vote_average', 3, 1).notNullable();
     table.timestamps();
   })
 };
