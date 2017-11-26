@@ -6,7 +6,7 @@ exports.seed = function(knex, Promise) {
       // Inserts seed entries
       return knex('movies').insert([
         {
-          tmdb_id: 155,
+          id: 155,
           title: 'The Dark Knight',
           poster_path: '/1hRoyzDtpgMU7Dz4JF22RANzQO7.jpg',
           backdrop_path: '/hqkIcbrOHL86UncnHIsHVcVmzue.jpg',
@@ -15,7 +15,7 @@ exports.seed = function(knex, Promise) {
           vote_average: 8.3,
         },
         {
-          tmdb_id: 49026,
+          id: 49026,
           title: 'The Dark Knight Rises',
           poster_path: '/dEYnvnUfXrqvqeRSqvIEtmzhoA8.jpg',
           backdrop_path: '/3bgtUfKQKNi3nJsAB5URpP2wdRt.jpg',
@@ -24,7 +24,7 @@ exports.seed = function(knex, Promise) {
           vote_average: 7.6,
         },
         {
-          tmdb_id: 157336,
+          id: 157336,
           title: 'Interstellar',
           poster_path: '/nBNZadXqJSdt05SHLqgT0HuC5Gm.jpg',
           backdrop_path: '/xu9zaAevzQ5nnrsXN6JcahLnG4i.jpg',

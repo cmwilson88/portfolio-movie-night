@@ -20,7 +20,8 @@
     "server": "nodemon --watch server --exec babel-node -- server/index.js",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "reset-db": "knex migrate:rollback && knex migrate:latest && knex seed:run"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
