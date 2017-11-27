@@ -5,7 +5,7 @@ exports.up = function(knex, Promise) {
     table.string('username').notNullable().unique();
     table.string('email').notNullable().unique();
     table.string('password_digest').notNullable();
-    table.timestamps();
+    table.timestamp('join_date').defaultTo(knex.fn.now());
   })
   .createTable('movies', table => {
     table.integer('id').notNullable().unique();
