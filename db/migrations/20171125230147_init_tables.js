@@ -15,7 +15,6 @@ exports.up = function(knex, Promise) {
     table.text('overview').notNullable();
     table.string('release_date').notNullable();
     table.decimal('vote_average', 3, 1).notNullable();
-    table.timestamps();
   })
   .createTable('user_movies', table => {
     table.increments();
