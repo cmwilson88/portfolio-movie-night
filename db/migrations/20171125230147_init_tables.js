@@ -17,6 +17,11 @@ exports.up = function(knex, Promise) {
     table.decimal('vote_average', 3, 1).notNullable();
     table.timestamps();
   })
+  .createTable('user_movies', table => {
+    table.increments();
+    table.integer('user_id').references('id').inTable('users');
+    table.integer('movie_id').references('id').inTable('movies');
+  })
   .createTable('videos', table => {
     table.increments();
     table.string('key');
@@ -25,5 +30,9 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTable('users').dropTable('movies')
+  return knex.schema
+    .dropTableIfExists('videos')
+    .dropTableIfExists('user_movies')
+    .raw('drop table if exists users cascade')
+    .raw('drop table if exists movies cascade')
 };
