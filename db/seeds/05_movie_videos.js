@@ -1,10 +1,10 @@
 
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('videos').del()
+  return knex('movie_videos').del()
     .then(function () {
       // Inserts seed entries
-      return knex('videos').insert([
+      return knex('movie_videos').insert([
         {
           key: 'kmJLuwP3MbY',
           movie_id: 155,

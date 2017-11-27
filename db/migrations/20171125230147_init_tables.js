@@ -19,20 +19,31 @@ exports.up = function(knex, Promise) {
   })
   .createTable('user_movies', table => {
     table.increments();
-    table.integer('user_id').references('id').inTable('users');
-    table.integer('movie_id').references('id').inTable('movies');
+    table.integer('user_id').references('id').inTable('users').notNullable();
+    table.integer('movie_id').references('id').inTable('movies').notNullable();
   })
-  .createTable('videos', table => {
+  .createTable('movie_videos', table => {
     table.increments();
-    table.string('key');
-    table.integer('movie_id').references('id').inTable('movies');
+    table.string('key').notNullable();
+    table.integer('movie_id').references('id').inTable('movies').notNullable();
+  })
+  .createTable('genres', table => {
+    table.integer('id').notNullable().unique();
+    table.string('name').notNullable();
+  })
+  .createTable('movie_genres', table=> {
+    table.increments();
+    table.integer('genre_id').references('id').inTable('genres').notNullable();
+    table.integer('movie_id').references('id').inTable('movies').notNullable();
   })
 };
 
 exports.down = function(knex, Promise) {
   return knex.schema
-    .dropTableIfExists('videos')
+    .dropTableIfExists('movie_videos')
     .dropTableIfExists('user_movies')
+    .dropTableIfExists('movie_genres')
+    .raw('drop table if exists genres cascade')
     .raw('drop table if exists users cascade')
     .raw('drop table if exists movies cascade')
 };
