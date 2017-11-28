@@ -6,6 +6,7 @@ import NavigationBar from './components/NavigationBar';
 import Greetings from './components/Greetings';
 import FlashMessagesList from './components/flash/FlashMessagesList';
 import SignupPage from './components/signup/SignupPage';
+import LoginPage from './components/login/LoginPage';
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Greetings} />
           <Route path="/signup" component={SignupPage} />
+          <Route path="/login" component={LoginPage} />
         </Switch>
       </div>
     );

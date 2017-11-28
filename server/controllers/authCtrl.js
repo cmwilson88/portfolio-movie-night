@@ -11,7 +11,7 @@ export function login(req, res) {
     .where('username', identifier)
     .orWhere('email', identifier)
     .then(user => {
-      if( user ) {
+      if( user[0] ) {
         user = user[0]
         if (bcrypt.compareSync(password, user.password_digest)) {
           const token = jwt.sign({
