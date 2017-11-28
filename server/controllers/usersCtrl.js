@@ -24,6 +24,6 @@ export function checkIfUserExists(req, res) {
   knex.select('username', 'email').from('users')
     .where('username', req.params.identifier)
     .orWhere('email', req.params.identifier)
-    .then(user => res.json(user))
-    .catch(err => res.status(500).json(err))
+      .then(user => res.json(user))
+      .catch(err => res.status(500).json(err))
 }

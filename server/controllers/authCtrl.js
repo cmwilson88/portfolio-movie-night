@@ -14,7 +14,6 @@ export function login(req, res) {
       if( user ) {
         user = user[0]
         if (bcrypt.compareSync(password, user.password_digest)) {
-          console.log('compare sync success');
           const token = jwt.sign({
             id: user.id,
             username: user.username
