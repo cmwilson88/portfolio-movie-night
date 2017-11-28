@@ -1,5 +1,5 @@
 import React from 'react';
-import map from 'lodash/map';
+import PropTypes from 'prop-types';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -17,13 +17,15 @@ class SignupForm extends React.Component {
   }
 
   onChange(e) {
-    e.preventDefault();
-    console.log(this.state);
+    this.setState({
+      [e.target.name]: e.target.value
+    })
   }
-
+  
   onSubmit(e) {
     e.preventDefault();
-    console.log(this.state);
+    console.log('onSubmit fired');
+    this.props.userSignupRequest(this.state);
   }
 
   render() {
@@ -65,17 +67,22 @@ class SignupForm extends React.Component {
           <label className="control-label">Confirm Password</label>
           <input 
             value={this.state.passwordConfirmation}
-            onChange={this.state.passwordConfirmation}
+            onChange={this.onChange}
             name="passwordConfirmation"
             type="password" 
             className="form-control"/>
         </div>
+
         <div className="form-group">
-          <div className="btn btn-primary btn-lg">Sign Up</div>
+          <button className="btn btn-primary btn-lg">Sign Up</button>
         </div>
       </form>
     )
   }
+}
+
+SignupForm.propTypes = {
+  userSignupRequest: PropTypes.func.isRequired
 }
 
 export default SignupForm
