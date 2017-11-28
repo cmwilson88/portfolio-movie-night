@@ -13,6 +13,12 @@ class FlashMessage extends React.Component {
     this.props.deleteFlashMessage(this.props.message.id);
   }
 
+  componentDidMount() {
+    setTimeout(() => {
+      this.props.deleteFlashMessage(this.props.message.id);
+    }, 3000)
+  }
+
   render() {
     const {id, type, text} = this.props.message
     return (
