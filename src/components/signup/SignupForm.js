@@ -44,7 +44,9 @@ class SignupForm extends React.Component {
         isLoading: true
       })
       this.props.userSignupRequest(this.state)
-                .then(() => {})
+                .then(() => {
+                  this.props.history.push('/');
+                })
                 .catch(err => {
                   this.setState({
                     errors: err.response.data,
@@ -102,7 +104,8 @@ class SignupForm extends React.Component {
 }
 
 SignupForm.propTypes = {
-  userSignupRequest: PropTypes.func.isRequired
+  userSignupRequest: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired
 }
 
 export default SignupForm
