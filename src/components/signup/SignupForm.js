@@ -38,7 +38,7 @@ class SignupForm extends React.Component {
         let errors = this.state.errors;
         let invalid;
         console.log(res)
-        if(res.data.user) {
+        if(res.data.user[0]) {
           console.log(res.data.user)
           errors[field] = 'There is user with such ' + field
           invalid = true

@@ -7,7 +7,6 @@ export function userSignupRequest(userData) {
 }
 
 export function isUserExists(identifier) {
-  console.log('isUserExists fired')
   return dispatch => {
     return axios.get(`/api/users/${identifier}`)
   }
