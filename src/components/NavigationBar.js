@@ -3,11 +3,23 @@ import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../actions/authActions';
+import { addFlashMessage } from '../actions/flashMessages';
 
 class NavigationBar extends React.Component {
     logout(e) {
         e.preventDefault();
-        this.props.logout();
+        this.props.logout()
+        if(localStorage.jwtToken) {
+            this.props.addFlashMessage({
+                type: 'error',
+                text: 'Something went wrong!'
+            })
+        } else {
+            this.props.addFlashMessage({
+                type: 'success',
+                text: 'Successfully logged out.'
+            })
+        }
     }
 
     render() {
@@ -48,7 +60,8 @@ class NavigationBar extends React.Component {
 
 NavigationBar.propTypes = {
     auth: PropTypes.object.isRequired,
-    logout: PropTypes.func.isRequired
+    logout: PropTypes.func.isRequired,
+    addFlashMessage: PropTypes.func.isRequired
 }
 
 function mapStateToProps(state) {
@@ -57,4 +70,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, { logout })(NavigationBar);
+export default connect(mapStateToProps, { logout, addFlashMessage })(NavigationBar);
