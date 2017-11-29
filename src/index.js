@@ -7,6 +7,16 @@ import { BrowserRouter as Router} from 'react-router-dom'
 import { Provider } from 'react-redux';
 import store from './ducks/store';
 
+
+import setAuthorizationToken from './utils/setAuthorizationToken';
+import { setCurrentUser } from './actions/authActions'
+import jwtDecode from 'jwt-decode';
+
+if(localStorage.jwtToken) {
+  setAuthorizationToken(localStorage.jwtToken)
+  store.dispatch(setCurrentUser(jwtDecode(localStorage.jwtToken)));
+}
+
 ReactDOM.render(
   <Provider store={store}>
     <Router>
