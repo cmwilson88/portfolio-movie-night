@@ -4,7 +4,7 @@ import validateInput from '../../shared/validations/login';
 import { connect } from 'react-redux';
 import { login } from '../../actions/authActions';
 import PropTypes from 'prop-types';
-
+import { addFlashMessage } from '../../actions/flashMessages'
 class LoginForm extends React.Component {
   constructor(props) {
     super(props)
@@ -41,6 +41,10 @@ class LoginForm extends React.Component {
       })
       this.props.login(this.state)
             .then(res => {
+              this.props.addFlashMessage({
+                type: 'success',
+                text: 'Successfully logged in.'
+              })
               this.props.history.push('/')
             })
             .catch(err => {
@@ -98,8 +102,14 @@ class LoginForm extends React.Component {
 }
 
 LoginForm.propTypes = {
+  addFlashMessage: PropTypes.func.isRequired,
   login: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired
 }
 
-export default connect(null, { login })(LoginForm)
+export default connect(null, 
+  {
+    login,
+    addFlashMessage
+  }
+)(LoginForm)
