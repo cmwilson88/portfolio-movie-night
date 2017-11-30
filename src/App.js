@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Switch, Route} from 'react-router-dom';
-
+import './App.css'
 import NavigationBar from './components/NavigationBar';
 
 import Greetings from './components/Greetings';

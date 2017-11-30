@@ -35,7 +35,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "reset-db": "knex migrate:rollback && knex migrate:latest && knex seed:run"
+    "reset-db": "knex migrate:rollback && knex migrate:latest && knex seed:run",
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
