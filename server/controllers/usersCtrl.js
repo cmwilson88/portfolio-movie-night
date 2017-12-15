@@ -1,6 +1,8 @@
 import bcrypt from 'bcrypt';
 import isEmpty from 'lodash/isEmpty';
 import knex from '../../db/knex';
+import config from '../../config';
+import jwt from 'jsonwebtoken';
 import commonValidations from '../../src/shared/validations/signup';
 
 
@@ -36,15 +38,22 @@ export function createNewUser(req, res) {
       const {username, password, email} = req.body;
       const password_digest = bcrypt.hashSync(password, 10);
     
-      knex('users').insert({
-        username,
-        email,
-        password_digest
-      }).then(user => {
-          res.status(200).json({ success: true })
-      }).catch(err => {
-          res.status(500).json({ error: err })
-      })
+      knex('users')
+        .returning(['id', 'username'])
+        .insert({
+          username,
+          email,
+          password_digest
+        }).then(user => {
+            
+            const token = jwt.sign({
+              id: user[0].id,
+              username: user[0].username
+            }, config.JWT_SECRET)
+            res.status(200).json({ success: true, token })
+        }).catch(err => {
+           res.status(500).json({ error: err })
+        })
     } else {
       res.status(400).json(errors);
     }
