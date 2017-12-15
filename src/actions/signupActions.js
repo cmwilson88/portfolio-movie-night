@@ -7,7 +7,6 @@ export function userSignupRequest(userData) {
   return dispatch => {
     return axios.post('/api/users', userData)
             .then(res => {
-              console.log(token)
               const token = res.data.token
               localStorage.setItem('jwtToken', token);
               setAuthorizationToken(token)
