@@ -10,7 +10,7 @@ import LoginPage from './components/login/LoginPage';
 import ModalConductor from './components/PopupModals/ModalConductor/ModalConductor';
 
 import {connect} from 'react-redux';
-import {openModal} from './actions/modalActions'
+import {openModal} from 'redux/actions/modal-actions'
 
 class App extends Component {
   render() {

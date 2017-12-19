@@ -1,8 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import AuthModal from '../Modals/AuthModal';
-import {hideModal} from '../../../actions/modalActions';
+import AuthModal from 'components/PopupModals/Modals/AuthModal';
+import {hideModal} from 'redux/actions/modal-actions';
 
 function ModalConductor(props) {
   switch(props.currentModal) {

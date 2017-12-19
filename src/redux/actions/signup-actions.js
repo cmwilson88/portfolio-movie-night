@@ -1,7 +1,7 @@
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
-import {setCurrentUser} from './authActions';
-import setAuthorizationToken from '../utils/setAuthorizationToken'
+import {setCurrentUser} from 'redux/actions/auth-actions';
+import setAuthorizationToken from 'utils/setAuthorizationToken'
 
 export function userSignupRequest(userData) {
   return dispatch => {

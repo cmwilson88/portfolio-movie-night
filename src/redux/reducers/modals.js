@@ -1,4 +1,4 @@
-import { HIDE_MODAL, OPEN_MODAL } from '../../actions/types';
+import { HIDE_MODAL, OPEN_MODAL } from 'redux/actions/types';
 
 
 const initialState = {

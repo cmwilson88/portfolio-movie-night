@@ -2,9 +2,9 @@ import React from 'react';
 import TextFieldGroup from '../common/TextFieldGroup';
 import validateInput from '../../shared/validations/login';
 import { connect } from 'react-redux';
-import { login } from '../../actions/authActions';
+import { login } from 'redux/actions/auth-actions';
 import PropTypes from 'prop-types';
-import { addFlashMessage } from '../../actions/flashMessages'
+import { addFlashMessage } from 'redux/actions/flash-actions'
 class LoginForm extends React.Component {
   constructor(props) {
     super(props)
