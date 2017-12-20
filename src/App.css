@@ -6,6 +6,12 @@
   100% {
     transform: scale(1); } }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opactiy: 1; } }
+
 @keyframes fadeInBorder {
   0% {
     border-color: rgba(255, 255, 255, 0); }
@@ -59,12 +65,13 @@ body {
     font-weight: 400;
     animation: zoomInText;
     animation-duration: 1000ms;
+    animation-delay: 500ms;
+    animation-fill-mode: backwards;
     animation-timing-function: ease; }
 
 .btn, .btn:link, .btn:visited {
   display: inline-block;
   position: relative;
-  padding: 1.5rem 4rem;
   border-radius: 1rem;
   font-size: 1.6rem;
   text-transform: uppercase;
@@ -95,17 +102,23 @@ body {
 
 .btn--white {
   background-color: #fff;
-  color: #fff; }
+  color: #008b6b; }
 
 .btn--secondary {
   background-color: #008b6b;
   color: #fff; }
 
+.btn--large {
+  padding: 1.5rem 4rem; }
+
+.btn--small {
+  padding: .75rem 2rem; }
+
 .btn--animated {
   animation: moveInButton;
   animation-fill-mode: backwards;
   animation-duration: 900ms;
-  animation-delay: 900ms; }
+  animation-delay: 1500ms; }
 
 .header {
   display: flex;
@@ -115,14 +128,44 @@ body {
   height: 85vh;
   background-image: linear-gradient(to top right, rgba(191, 0, 44, 0.5), rgba(63, 0, 14, 0.33)), url(assets/images/hero.jpg);
   background-size: cover;
-  background-position: 50% 70%; }
+  background-position: center 70%;
+  background-attachment: fixed; }
   .header__text-box {
     padding: 1rem 3rem;
     border: 2px solid white;
     animation: fadeInBorder;
     animation-fill-mode: backwards;
     animation-duration: 1000ms;
-    animation-delay: 1000ms; }
+    animation-delay: 1500ms; }
+
+.navigation {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem 3.5rem;
+  animation: fadeIn;
+  animation-delay: 1750ms;
+  animation-duration: 2500ms;
+  animation-fill-mode: backwards; }
+  .navigation__logo {
+    font-family: 'metropolis_1920';
+    text-decoration: none;
+    color: #fff;
+    font-size: 2.3rem; }
+  .navigation__buttons {
+    margin-left: auto; }
+  .navigation__buttons-container {
+    display: flex;
+    list-style: none; }
+    .navigation__buttons-container > * {
+      margin-left: 1rem; }
+  .navigation__links {
+    list-style: none;
+    text-decoration: none;
+    color: #fff; }
 
 .modal-wrapper {
   position: fixed;

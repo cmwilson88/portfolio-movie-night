@@ -13,7 +13,8 @@
     ),
     url(assets/images/hero.jpg);
   background-size: cover;
-  background-position: 50% 70%;
+  background-position: center 70%;
+  background-attachment: fixed;
 
   &__text-box {
     padding: 1rem 3rem;
@@ -22,6 +23,6 @@
     animation: fadeInBorder;
     animation-fill-mode: backwards;
     animation-duration: 1000ms;
-    animation-delay: 1000ms;
+    animation-delay: 1500ms;
   }
 }

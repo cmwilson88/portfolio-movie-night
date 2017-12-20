@@ -26,32 +26,30 @@ class NavigationBar extends React.Component {
         const { isAuthenticated } = this.props.auth
 
         const guestLinks = (
-            <ul className="nav navbar-nav navbar-right">
+            <ul className="navigation__buttons-container">
                 <li>
-                    <Link to="/signup">Sign Up</Link>
+                    <Link className="btn btn--small btn--white" to="/signup">Sign Up</Link>
                 </li>
                 <li>
-                    <Link to="/login">Login</Link>
+                    <Link className="btn btn--small btn--secondary" to="/login">Login</Link>
                 </li>
             </ul>
         )
 
         const userLinks = (
-            <ul className="nav navbar-nav navbar-right">
+            <ul className="navigation__buttons-container">
                 <li>
-                    <a href="#" onClick={this.logout.bind(this)}>Logout</a>
+                    <a href="#" className="btn btn--small btn--secondary" onClick={this.logout.bind(this)}>Logout</a>
                 </li>
             </ul>
         )
         return (
-            <nav className="navbar navbar-default">
-                <div className="container-fluid">
-                    <div className="navbar-header">
-                        <Link to="/" className="navbar-brand">Movie Night</Link>
-                    </div>
-                    <div className="collapse navbar-collapse">
-                        { isAuthenticated ? userLinks : guestLinks }
-                    </div>
+            <nav className="navigation">
+                <div className="navigation__title">
+                    <Link to="/" className="navigation__logo">Movie Night</Link>
+                </div>
+                <div className="navigation__buttons">
+                    { isAuthenticated ? userLinks : guestLinks }
                 </div>
             </nav>
         )

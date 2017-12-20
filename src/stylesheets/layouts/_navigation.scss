@@ -1,0 +1,40 @@
+.navigation {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem 3.5rem;
+
+  animation: fadeIn;
+  animation-delay: 1750ms;
+  animation-duration: 2500ms;
+  animation-fill-mode: backwards;
+
+  &__logo {
+    font-family: 'metropolis_1920';
+    text-decoration: none;
+    color: $color-white;
+    font-size: 2.3rem;
+  }
+
+  &__buttons {
+    margin-left: auto;
+  }
+  
+  &__buttons-container {
+    display: flex;
+    list-style: none;
+
+    & > * {
+      margin-left: 1rem;
+    }
+  }
+  
+  &__links {
+    list-style: none;
+    text-decoration: none;
+    color: $color-white;
+  }
+}

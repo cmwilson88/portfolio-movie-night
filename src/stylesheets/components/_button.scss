@@ -5,16 +5,15 @@
     display: inline-block;
     position: relative;
 
-    padding: 1.5rem 4rem;
     border-radius: 1rem;
-
+    
     font-size: 1.6rem;
     text-transform: uppercase;
     text-decoration: none;
-
+    
     transition: all 200ms;
   }
-
+  
   &:hover {
     transform: translateY(-0.3rem);
     box-shadow: 0 1rem 2rem rgba($color-black, .2);
@@ -24,13 +23,13 @@
       opacity: 0
     }
   }
-
+  
   &:active,
   &:focus {
     transform: translateY(-0.1rem);
     box-shadow: 0 .5rem 1rem rgba($color-black, .2);
   }
-
+  
   &::after {
     content: '';
     display: inline-block;
@@ -42,25 +41,33 @@
     z-index: -1;
     transition: all 400ms;
   }
-
+  
   // White button
   &--white {
     background-color: $color-white;
-    color: $color-white;
-
+    color: $color-secondary;
+    
   }
-
+  
   &--secondary {
     background-color: $color-secondary;
     color: $color-white;
     
+  }
+  
+  &--large {
+    padding: 1.5rem 4rem;
+  }
+
+  &--small {
+    padding: .75rem 2rem;;
   }
 
   &--animated {
     animation: moveInButton;
     animation-fill-mode: backwards;
     animation-duration: 900ms;
-    animation-delay: 900ms;
+    animation-delay: 1500ms;
 
   }
 }

@@ -9,7 +9,7 @@ export default function Home() {
             <h1 className="heading-primary heading-primary--main">Movie night</h1>
           </div>
 
-          <a href="" className="btn btn--secondary btn--animated">Learn More</a>
+          <a href="" className="btn btn--large btn--secondary btn--animated">Learn More</a>
 
         </header>
     </section>

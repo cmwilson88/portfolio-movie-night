@@ -29,6 +29,8 @@ body {
 
     animation: zoomInText;
     animation-duration: 1000ms;
+    animation-delay: 500ms;
+    animation-fill-mode: backwards;
     animation-timing-function: ease;
   }
 }
