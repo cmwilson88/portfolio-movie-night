@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'metropolis_1920';
-  src: url('stylesheets/fonts/metropolis_1920-webfont.woff2') format('woff2'),
-       url('stylesheets/fonts/metropolis_1920-webfont.woff') format('woff');
+  src: url('assets/fonts/metropolis_1920-webfont.woff2') format('woff2'),
+       url('assets/fonts/metropolis_1920-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -12,4 +12,23 @@ body {
   /* font-size: 16px; */
   line-height: 1.7;
   color: $color-grey-dark-1;
+}
+
+.heading-primary {
+  color: $color-white;
+  text-transform: uppercase;
+
+  backface-visibility: hidden;
+
+  &--main {
+    display: block;
+
+    font-family: 'metropolis_1920';
+    font-size: 6rem;
+    font-weight: 400;
+
+    animation: zoomInText;
+    animation-duration: 1000ms;
+    animation-timing-function: ease;
+  }
 }

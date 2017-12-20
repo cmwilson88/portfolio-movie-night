@@ -1,0 +1,27 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  height: 85vh;
+  background-image: 
+    linear-gradient(
+      to top right,
+      rgba($color-primary-light, .50),
+      rgba($color-primary-dark, .33)
+    ),
+    url(assets/images/hero.jpg);
+  background-size: cover;
+  background-position: 50% 70%;
+
+  &__text-box {
+    padding: 1rem 3rem;
+    border: 2px solid white;
+
+    animation: fadeInBorder;
+    animation-fill-mode: backwards;
+    animation-duration: 1000ms;
+    animation-delay: 1000ms;
+  }
+}

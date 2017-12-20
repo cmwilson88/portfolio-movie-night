@@ -1,3 +1,25 @@
+@keyframes zoomInText {
+  0% {
+    transform: scale(0); }
+  90% {
+    transform: scale(2); }
+  100% {
+    transform: scale(1); } }
+
+@keyframes fadeInBorder {
+  0% {
+    border-color: rgba(255, 255, 255, 0); }
+  100% {
+    border-color: white; } }
+
+@keyframes moveInButton {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem); }
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
+
 *,
 *::after,
 *::before {
@@ -9,12 +31,13 @@ html {
   font-size: 62.5%; }
 
 body {
-  box-sizing: border-box;
-  padding: 3rem; }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
 
 @font-face {
   font-family: 'metropolis_1920';
-  src: url("stylesheets/fonts/metropolis_1920-webfont.woff2") format("woff2"), url("stylesheets/fonts/metropolis_1920-webfont.woff") format("woff");
+  src: url("assets/fonts/metropolis_1920-webfont.woff2") format("woff2"), url("assets/fonts/metropolis_1920-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 
@@ -24,6 +47,82 @@ body {
   /* font-size: 16px; */
   line-height: 1.7;
   color: #999; }
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  backface-visibility: hidden; }
+  .heading-primary--main {
+    display: block;
+    font-family: 'metropolis_1920';
+    font-size: 6rem;
+    font-weight: 400;
+    animation: zoomInText;
+    animation-duration: 1000ms;
+    animation-timing-function: ease; }
+
+.btn, .btn:link, .btn:visited {
+  display: inline-block;
+  position: relative;
+  padding: 1.5rem 4rem;
+  border-radius: 1rem;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 200ms; }
+
+.btn:hover {
+  transform: translateY(-0.3rem);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+  .btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0; }
+
+.btn:active, .btn:focus {
+  transform: translateY(-0.1rem);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+
+.btn::after {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 400ms; }
+
+.btn--white {
+  background-color: #fff;
+  color: #fff; }
+
+.btn--secondary {
+  background-color: #008b6b;
+  color: #fff; }
+
+.btn--animated {
+  animation: moveInButton;
+  animation-fill-mode: backwards;
+  animation-duration: 900ms;
+  animation-delay: 900ms; }
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 85vh;
+  background-image: linear-gradient(to top right, rgba(191, 0, 44, 0.5), rgba(63, 0, 14, 0.33)), url(assets/images/hero.jpg);
+  background-size: cover;
+  background-position: 50% 70%; }
+  .header__text-box {
+    padding: 1rem 3rem;
+    border: 2px solid white;
+    animation: fadeInBorder;
+    animation-fill-mode: backwards;
+    animation-duration: 1000ms;
+    animation-delay: 1000ms; }
 
 .modal-wrapper {
   position: fixed;
