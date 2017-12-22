@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 
+import galleryImg from '../../../assets/images/gallery.png'
+
 export default class LandingPage extends Component {
   constructor(props) {
     super(props);
@@ -218,10 +220,11 @@ export default class LandingPage extends Component {
       displayMovie: '',
       randomizing: false
     }
-
+    
     this.randomizePoster = this.randomizePoster.bind(this);
     this.animateRandom = this.animateRandom.bind(this);
   }
+  
 
   randomizePoster() {
     let randomMovie = Math.floor(Math.random() * this.state.movies.length);
@@ -267,25 +270,43 @@ export default class LandingPage extends Component {
   
           </header>
   
+          
           {/* Landing Page About Section */}
           <section id="landing-about" className="landing-about">
             <div className="u-text-center u-margin-bottom-med">
-              <h2 className="heading-secondary">How it works</h2>
+              <h2 className="heading-secondary">
+                What is Movie Night?
+              </h2>
+            </div>
+
+            <div className="about">
+              <div className="about__composite">
+                <img className="about__gallery" src={galleryImg} alt="Gallery of movies"/>
+              </div>
+              <div className="about__description">
+                <p className="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia dicta eos ad, fugit rem assumenda dolorem quis, corporis aut dolore sequi sit doloremque illum commodi vitae magnam tempora, laboriosam eum.</p>
+                <p className="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia dicta eos ad, fugit rem assumenda dolorem quis, corporis aut dolore sequi sit doloremque illum commodi vitae magnam tempora, laboriosam eum.  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia dicta eos ad, fugit rem assumenda dolorem quis, corporis aut dolore sequi sit doloremque illum commodi vitae magnam tempora, laboriosam eum.</p>              
+                <p className="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia dicta eos ad, fugit rem assumenda dolorem quis, corporis aut dolore sequi sit doloremque illum commodi vitae magnam tempora, laboriosam eum.</p>              
+                <p className="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia dicta eos ad, fugit rem assumenda dolorem quis, corporis aut dolore sequi sit doloremque illum commodi vitae magnam tempora, laboriosam eum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia dicta eos ad, fugit rem assumenda dolorem quis, corporis aut dolore sequi sit doloremque illum commodi vitae magnam tempora, laboriosam eum.</p>              
+              
+              </div>
+            </div>
+          </section> 
+          
+          {/* Landing Page Features Section */}
+          <section className="landing-features">
+            <div className="u-text-center u-margin-bottom-med">
+              <h2 className="heading-secondary">
+                How does it work?
+              </h2>
             </div>
             
             <div className="about">
               <div className="about__description">
-                <p className="paragraph">
-                  Own a lot of movies? 
-                </p>
-                <p className="paragraph">
-                  Having trouble deciding what movie to watch? 
-                </p>
-                <p className="paragraph">
-                  Or do you want an efficient way to see your collection without having an entire wall of movie cases?
-                </p> 
+                <p className="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia dicta eos ad, fugit rem assumenda dolorem quis, corporis aut dolore sequi sit doloremque illum commodi vitae magnam tempora, laboriosam eum.</p>
+                <p className="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia dicta eos ad, fugit rem assumenda dolorem quis, corporis aut dolore sequi sit doloremque illum commodi vitae magnam tempora, laboriosam eum.</p>              
               </div>
-              <div className="about__composite">
+              <div className="about__composite about__composite--1">
                 <div className="movie-tile u-margin-bottom-small">
                   <img className="movie-tile__poster" src={`https://image.tmdb.org/t/p/w500${this.state.displayPoster}`} />
                 </div>

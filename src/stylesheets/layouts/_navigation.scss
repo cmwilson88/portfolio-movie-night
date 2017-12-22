@@ -50,14 +50,14 @@
 
   &--scrolled {
     background-image: 
-    linear-gradient(
-      25deg,
-      rgba(darken($color-primary-light, 12%), .50),
-      rgba($color-primary-dark, .33)
-    ),
-    linear-gradient(
-      $color-black,
-      $color-black
-    )
+      linear-gradient(
+        25deg,
+        rgba(darken($color-primary-light, 12%), .50),
+        rgba($color-primary-dark, .33)
+      ),
+      linear-gradient(
+        $color-black,
+        $color-black
+      )
   }
 }
