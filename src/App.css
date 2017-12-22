@@ -219,9 +219,12 @@ body {
   z-index: 2500; }
 
 .about {
-  display: flex; }
-  .about > * {
-    width: 50%; }
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .about > div {
+    width: 95%;
+    margin-bottom: 5rem; }
   .about__composite {
     display: flex;
     flex-direction: column;
