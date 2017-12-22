@@ -1,0 +1,17 @@
+.about {
+  display: flex;
+  // justify-content: center;
+
+  & > * {
+    width: 50%;
+  }
+
+  &__composite {
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    backface-visibility: hidden;
+  }
+}
