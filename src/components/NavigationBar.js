@@ -2,10 +2,57 @@ import React from 'react'
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import { logout } from 'redux/actions/auth-actions';
 import { addFlashMessage } from 'redux/actions/flash-actions';
 
 class NavigationBar extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            width: '0',
+            height: '0',
+            scrolled: false
+        }
+
+        this.handleScroll = this.handleScroll.bind(this);
+        this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+        this.logout = this.logout.bind(this);
+    }
+
+    componentDidMount() {
+        window.addEventListener('scroll', this.handleScroll);
+        window.addEventListener('resize', this.updateWindowDimensions)
+        this.updateWindowDimensions();
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.handleScroll);
+        window.removeEventListener('resize', this.updateWindowDimensions);
+    }
+
+
+    handleScroll(event) {
+        const viewHeight = window.innerHeight;
+        if(event.srcElement.scrollingElement.scrollTop > (this.state.height*.75)) {
+            this.setState({
+                scrolled: true
+            })
+        } else {
+            this.setState({
+                scrolled: false
+            })
+        }
+    }
+
+    updateWindowDimensions() {
+        this.setState({
+            width: window.innerWidth,
+            height: window.innerHeight
+        })
+    }
+    
     logout(e) {
         e.preventDefault();
         this.props.logout()
@@ -24,7 +71,12 @@ class NavigationBar extends React.Component {
 
     render() {
         const { isAuthenticated } = this.props.auth
-
+        const navClasses = classnames(
+            'navigation',
+            {
+                'navigation--scrolled': this.state.scrolled
+            }
+        )
         const guestLinks = (
             <ul className="navigation__buttons-container">
                 <li>
@@ -43,8 +95,10 @@ class NavigationBar extends React.Component {
                 </li>
             </ul>
         )
+
+
         return (
-            <nav className="navigation">
+            <nav className={navClasses}>
                 <div className="navigation__title">
                     <Link to="/" className="navigation__logo">Movie Night</Link>
                 </div>

@@ -6,11 +6,14 @@
   left: 0;
   right: 0;
   padding: 1rem 3.5rem;
+  z-index: 15;
 
   animation: fadeIn;
   animation-delay: 1750ms;
   animation-duration: 2500ms;
   animation-fill-mode: backwards;
+
+  // transition: background-color 200ms ease-in;
 
   &__logo {
     font-family: 'metropolis_1920';
@@ -36,5 +39,18 @@
     list-style: none;
     text-decoration: none;
     color: $color-white;
+  }
+
+  &--scrolled {
+    background-image: 
+    linear-gradient(
+      25deg,
+      rgba(darken($color-primary-light, 12%), .50),
+      rgba($color-primary-dark, .33)
+    ),
+    linear-gradient(
+      $color-black,
+      $color-black
+    )
   }
 }
