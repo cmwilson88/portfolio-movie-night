@@ -80,10 +80,7 @@ class NavigationBar extends React.Component {
         const guestLinks = (
             <ul className="navigation__buttons-container">
                 <li>
-                    <Link className="btn btn--small btn--white" to="/signup">Sign Up</Link>
-                </li>
-                <li>
-                    <Link className="btn btn--small btn--secondary" to="/login">Login</Link>
+                    <Link className="btn btn--small btn--white" to="/signup">Sign In</Link>
                 </li>
             </ul>
         )

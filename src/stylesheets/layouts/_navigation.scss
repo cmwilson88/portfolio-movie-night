@@ -5,7 +5,7 @@
   top: 0;
   left: 0;
   right: 0;
-  padding: 1rem 3.5rem;
+  padding: 1rem 7rem;
   z-index: 15;
 
   animation: fadeIn;
@@ -15,6 +15,13 @@
 
   // transition: background-color 200ms ease-in;
 
+  @include respond(desk-big) {
+    padding: 1rem 15rem;
+  }
+  @include respond(tab-land) {
+    padding: 1rem 3.5rem;
+  }
+  
   &__logo {
     font-family: 'metropolis_1920';
     text-decoration: none;
